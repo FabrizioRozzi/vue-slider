@@ -15,24 +15,29 @@
     
     <div  class="container-slide">
       
-      <div class="prev">
+      <div class="prev"  @click="prevImg">
         <i class="fas fa-arrow-left"></i>
       </div>
       
       <div class="images">
-        <img :src="arrImage[0]" alt="">
+        <img :src="arrImage[counter]" alt="">
       </div>
 
       
-      <div class="next">
+      <div class="next" @click="nextImg">
         <i class="fas fa-arrow-right"></i>
       </div>
       
       <div class="container-pallini">
-        <i class="fas fa-circle"></i>
-        <i class="fas fa-circle"></i>
-        <i class="fas fa-circle"></i>
-        <i class="fas fa-circle"></i>
+
+        <!-- Stampo tanti pallini quante sono le immagini -->
+        <i 
+          v-for="(pallino, index) in arrImage" 
+          :class="(index===counter)? 'active' : ' '"
+          class="fas fa-circle"
+        >
+        </i>
+ 
       </div>
     
     </div>
